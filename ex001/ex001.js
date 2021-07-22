@@ -34,7 +34,7 @@ function statmenet(invoice, plays){
     
     for(let perf of invoice[0].performances){
         
-        let thisAmount = amountFor(playFor(perf), perf);
+        let thisAmount = amountFor(perf);
 
         // 포인트를 적립한다.
         volumeCredits += Math.max(perf.audience - 30, 0);
@@ -56,7 +56,7 @@ function playFor(aPerformance){
     return plays[aPerformance.playID];
 }
 
-function amountFor(play,  aPerformance) {
+function amountFor(aPerformance) {
     let result = 0;
 
     switch (playFor(aPerformance).type) {
