@@ -49,7 +49,7 @@ function htmlStatement(invoice,plays){
 }
 
 function renderHtml(data){
-    let result =`<h1>청구 내역 ( 고객명 : ${data.customer})</h1>\n`;
+    let result =`<h1>청구 내역 ( 고객명 : ${data.customer} )</h1>\n`;
     result += "<table>\n";
     result += "<tr><th>연극</th><th>좌석 수</th><th>금액</th></tr>";
     for (let perf of data.performances){
@@ -75,3 +75,5 @@ function usd(aNumber) {
 console.log(statement(invoices, plays));
 console.log(htmlStatement(invoices, plays));
 
+
+document.getElementById("a").innerHTML  = htmlStatement(invoices, plays);
