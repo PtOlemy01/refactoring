@@ -24,17 +24,18 @@ let invoices = [
     }
 ];
 
-function statmenet(invoice, plays){
+function statement(invoice, plays){
     let totalAmount = 0;
-    let volumeCredits = 0;
     let result = `청구 내역 (고객명: ${invoice[0].customer})\n`;
     
     for(let perf of invoice[0].performances){
-        volumeCredits += volumeCreditsFor(perf);
-
         // 청구 내역을 출력한다.
         result += `  ${playFor(perf).name} : ${usd(amountFor(perf))} (${perf.audience}석)\n`;
         totalAmount += amountFor(perf);
+    }
+    let volumeCredits = 0;
+    for(let perf of invoice[0].performances){
+        volumeCredits += volumeCreditsFor(perf);
     }
 
     result += `총액 : ${usd(totalAmount)}\n`;
@@ -57,6 +58,7 @@ function volumeCreditsFor(aPerformance) {
     result += Math.max(aPerformance.audience - 30, 0);
     if ("comedy" === playFor(aPerformance).type)
         result += Math.floor(aPerformance.audience / 5);
+
     return result;
 }
 
@@ -87,5 +89,5 @@ function amountFor(aPerformance) {
     return result;
 }
 
-console.log(statmenet(invoices, plays));
+console.log(statement(invoices, plays));
 
