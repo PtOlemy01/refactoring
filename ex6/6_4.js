@@ -1,2 +1,2 @@
-let basePrice = anOrder.basePrice;
-return (basePrice > 100);
+
+return (anOrder.basePrice > 100);
