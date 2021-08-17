@@ -28,7 +28,7 @@ class Course{
     get isAdvanced(){return this._isAdvanced;}
 }
 
-Person aPerson = new Person();
+aPerson = new Person();
 
 numAdvancedCourses = aPerson.course
     .filter(c => c.isAdvanced)
