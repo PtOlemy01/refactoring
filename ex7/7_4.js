@@ -22,10 +22,8 @@ class Order {
     }
 
     get price(){
-        const discountFactor = this.discountFactor;
-
-        if(this.basePrice > 1000) discountFactor -= 0.03;
-        return this.basePrice * discountFactor;
+        if(this.basePrice > 1000) this.discountFactor -= 0.03;
+        return this.basePrice * this.discountFactor;
     }
 
     get basePrice(){
