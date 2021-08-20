@@ -8,6 +8,16 @@ function trackSummury(points){
         pace: pace
     };
 
+    function calculate(){...} // 총 시간 계산 
+}
+
+function top_calculateDistance(points){
+    let result = 0;
+    for (let i=1; i< points.length; i++){
+        result += distance(points[i-1], points[i]);
+    }
+    return result;
+
     // 두 지점의 거리 계산
     function distance(p1, p2){
         const EARH_RADIUS = 3959;
@@ -24,14 +34,4 @@ function trackSummury(points){
     function radians(degrees){
         return degre * Math.PI / 180;
     } 
-    
-    function calculate(){...} // 총 시간 계산 
-}
-
-function top_calculateDistance(points){
-    let result = 0;
-    for (let i=1; i< points.length; i++){
-        result += distance(points[i-1], points[i]);
-    }
-    return result;
 }
