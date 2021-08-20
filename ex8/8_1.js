@@ -1,13 +1,13 @@
 function trackSummury(points){
     const totalTime = calculateTime();
-    const totalDistance = calculateDistance();
+    const totalDistance = top_calculateDistance(points);
     const pace = totalTime / 60 / totalDistance;
     return {
         time : totalTime,
         distance : totalDistance,
         pace: pace
     };
-
+    
     function calculate(){...} // 총 시간 계산 
 }
 
