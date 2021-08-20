@@ -2,7 +2,7 @@ class TrackingInfomation{
     get shippingCompany() {return this._shippingCompany;} //배송회사
     set shippingCompany(arg){this._shippingCompany = arg;}
     get trackingNumber() {return this._trakingNumber;} // 추적번호
-    set trakingNumber(arg) {this._trakingNumber = arg;}
+    set trackingNumber(arg) {this._trakingNumber = arg;}
     get display(){
         return `${this.shippingCompany}: ${this.trackingNumber}`;
     }
@@ -17,3 +17,6 @@ class Shipment{
         this._trackingInfomation = aTrackingInfomation;
     }
 }
+
+aShipment.trackingInfomation.shippingCompany = request.vendor;
+
