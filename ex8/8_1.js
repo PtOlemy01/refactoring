@@ -37,21 +37,28 @@
 // } 
 
 class Account{
-    get bankCharge(){ // 은행 이자 계산
-        let result = 4.5;
-        if(this._daysOverdrawn > 0) result += this.overdrafeCharge;
-        return result;
+    constructor(){
+        this.type = new AccountType();
     }
 
-    get overdrafeCharge(){ // 초과 인출 이자 계산
-        if(this.type.isPremium){
+    get bankCharge(){ // 은행 이자 계산
+        let result = 4.5;
+        if(this._daysOverdrawn > 0) 
+            result += this.type.overdrafeCharge(this.daysOverdrawn);
+        return result;
+    }
+}
+
+class AccountType{
+    overdrafeCharge(daysOverdrawn){
+        if(this.isPremium){
             const baseCharge = 10;
-            if(this.daysOverdrawn <= 7)
+            if(daysOverdrawn <= 7)
                 return baseCharge;
-            else
-                return baseCharge + (this.daysOverdrawn - 7) * 0.85;
+            else    
+                return baseCharge + (daysOverdrawn - 7) * 0.085;
         }
         else
-            return this.daysOverdrawn * 1.75;
+            return daysOverdrawn * 1.75;
     }
 }
