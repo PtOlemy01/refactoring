@@ -18,4 +18,10 @@ class TelephoneNumber {
         this._areaCode = areaCode;
         this._number = number;
     }
+
+    equals(other){
+        if(!(other instanceof TelephoneNumber)) return false;
+        return this._areaCode === other._areaCode &&
+            this._number === other._number;
+    }
 }
