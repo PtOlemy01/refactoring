@@ -11,8 +11,9 @@ function regularCharge() {
 }
 
 function  calculateSummerRate(){
-    if(summer())
-        charge = summerCharge();
-    else
-        charge = regularCharge();
+    charge = summer() ? summerCharge() : regularCharge();
+    // if(summer())
+    //     charge = summerCharge();
+    // else
+    //     charge = regularCharge();
 }
