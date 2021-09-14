@@ -1,8 +1,6 @@
 function payAmount(employee){
     let result;
-    if(employee.isSeparated){       // 퇴사한 직원인가 ?
-        result = { amount : 0, reasonCode : "SEP"};
-    }
+    if(employee.isSeparated) return { amount : 0, reasonCode : "SEP"};
     else{
         if(employee.isRetired){ // 은퇴한 직원인가 ?
             result = {amount : 0, reasonCode : "RET"};
