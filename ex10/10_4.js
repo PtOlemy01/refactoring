@@ -32,16 +32,7 @@ class Bird{
         Object.assign(this, birdObject);
     }
     get plumage(){     // 깃털 상태
-        switch(bird.type){
-            case '유럽 제비':
-                return "보통이다";
-            case '아프리카 제비':
-                return (bird.numberOfCoconuts > 2) ? "지쳤다" : "보통이다";
-            case '노르웨이 파랑 앵무':
-                return (bird.voltage > 100) ? "그을렸다" : "예쁘다";
-            default :
-                return "알 수 없다";
-        }
+        return "알 수 없다."
     }
 
     get airSpeedVelocity(){    // 비행속도
@@ -59,13 +50,19 @@ class Bird{
 }
 
 class EuropeanSwallow extends Bird{
-
+    get plumage(){
+        return "보통이다";
+    }
 }
 
 class AfricanSwallow extends Bird{
-
+    get plumage(){
+        return (this.numberOfCoconuts > 2) ? "지쳤다" : "보통이다";
+    }
 }
 
 class NorwegianBlueParrot extends Bird{
-
+    get plumage(){
+        return (this.voltage > 100) ? "그을렸다" : "예쁘다";
+    }
 }
