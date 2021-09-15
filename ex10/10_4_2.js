@@ -35,15 +35,19 @@ class Rating{   // 함수들을 Rating 클래스로 묶었다.
         let result = 2;
         if(this.voyage.zone === "중국") result += 1;
         if(this.voyage.zone === "동인도") result += 1;
-        result += this.voyageAndHistoryLengthFactor;
+        result += this.historyLengthFactor;
+        result += this.voyageLengthFactor;
         return result;
     }
 
-    get voyageAndHistoryLengthFactor(){
+    get voyageLengthFactor(){
         let result = 0;
-        if(this.history.length > 8) result += 1;
         if(this.voyage.length > 14) result -= 1;
         return result;
+    }
+
+    get historyLengthFactor(){
+        return (this.history.length > 8) ? 1 : 0;
     }
 
     get hasChinaHistory(){     // 중국을 경유하는가?
@@ -51,13 +55,16 @@ class Rating{   // 함수들을 Rating 클래스로 묶었다.
     }
 }
 class ExperiencedChinaRating extends Rating{
-    get voyageAndHistoryLengthFactor(){
+    get voyageLengthFactor(){
         let result = 0;
         result += 3;
-        if(this.history.length > 10) result += 1;
         if(this.voyage.length > 12) result += 1;
         if(this.voyage.length > 18) result -= 1;
         return result;
+    }
+
+    get historyLengthFactor(){
+        return (this.history.length > 10) ? 1 : 0;
     }
 }
 
