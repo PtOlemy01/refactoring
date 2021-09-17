@@ -1,6 +1,9 @@
 function createEmployee(name, typeCode){
     return new Employee(name, typeCode);
 }
+function createEngineer(name){
+    return new Employee(name, 'E"');
+}
 
 class Employee{
     constructor(name, typeCode) {
@@ -20,4 +23,4 @@ class Employee{
 
 candidate = createEmployee(document.name, document.empType);
 
-const leadEngineer = createEmployee(document.leadEngineer, 'E');
+const leadEngineer = createEngineer(document.leadEngineer);
