@@ -10,6 +10,8 @@ class HeatingPlan{
     }
 }
 
-if(thePlan.targetTemperature > thermostat.currentTemperature) seltToHeat();
-else if (thePlan.targetTemperature < thermostat.currentTemperature) seltToCool();
+if(thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) >
+    thermostat.currentTemperature) seltToHeat();
+else if (thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) <
+    thermostat.currentTemperature) seltToCool();
 else setOff();
