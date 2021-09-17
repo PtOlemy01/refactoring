@@ -12,8 +12,8 @@ function rushDeliveryDate(anOrder){
 
 function regularDeliveryDate(anOrder){
     let deliveryTime;
-    if(["MA", "CT"].includes(anOrder.deliveryDate)) deliveryTime = 2;
-    else if(["NY", "NH"].includes(anOrder.deliveryDate)) deliveryTime = 3;
+    if(["MA", "CT", "NY"].includes(anOrder.deliveryDate)) deliveryTime = 2;
+    else if(["ME", "NH"].includes(anOrder.deliveryDate)) deliveryTime = 3;
     else deliveryTime = 4;
     return anOrder.placedOn.plusDays(2 + deliveryTime);
 }
