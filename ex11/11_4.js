@@ -1,11 +1,11 @@
 let aPlan = new HeatingPlan();
-
-if(!aPlan.withinRange(aRoom.daysTempRange))
-    alerts.push("방 온도가 지정 범위를 벗어 났습니다.");
+const low = aRoom.daysTempRange.low;
+const high = aRoom.daysTempRange.high;
+if(!aPlan.withinRange(low, high))
+    alerts.push("방 온도가 지정 범위를 벗어 났습니다.")
 
 class HeatingPlan{
-    withinRange(aNumberRange){
-        return (aNumberRange.low >= this._temperatureRange.low)
-            && (aNumberRange.high <= this._temperatureRange.high);
+    withinRange(bottom, top){
+        return (bottom >= this._temperatureRange.low) && (top <= this._temperatureRange.high);
     }
 }
