@@ -18,6 +18,6 @@ class Employee{
 }
 
 
-candidate = new Employee(document.name, document.empType);
+candidate = createEmployee(document.name, document.empType);
 
-const leadEngineer = new Employee(document.leadEngineer, 'E');
+const leadEngineer = createEmployee(document.leadEngineer, 'E');
